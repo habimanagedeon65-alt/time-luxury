@@ -1,0 +1,539 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TIME LUXURY BY JEDEON : boutique de montres élégantes pour hommes et femmes.">
+<title>TIME LUXURY BY JEDEON | Montres de luxe</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f8f8;
+  color: #202020;
+}
+
+:root {
+  --black: #101010;
+  --gold: #c9a45c;
+  --white: #ffffff;
+}
+
+header {
+  background: var(--black);
+  color: white;
+  padding: 20px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.brand {
+  font-size: 23px;
+  font-weight: bold;
+  color: var(--gold);
+  letter-spacing: 2px;
+}
+
+.brand small {
+  display: block;
+  font-size: 11px;
+  color: white;
+  letter-spacing: 4px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav a:hover { color: var(--gold); }
+
+.hero {
+  min-height: 510px;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.85), rgba(0,0,0,.3)),
+    url("https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1600");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  padding: 60px 9%;
+  color: white;
+}
+
+.hero-content { max-width: 600px; }
+
+.hero .tag {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 7vw, 68px);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero h1 span { color: var(--gold); }
+
+.hero p {
+  line-height: 1.8;
+  color: #eeeeee;
+  margin-bottom: 30px;
+}
+
+.gold-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: #111;
+  padding: 15px 28px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.gold-btn:hover { background: white; }
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding: 30px 7%;
+  background: white;
+  text-align: center;
+}
+
+.feature strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.feature span {
+  color: #777;
+  font-size: 13px;
+}
+
+.section-title {
+  text-align: center;
+  padding: 55px 15px 20px;
+}
+
+.section-title p {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+
+.section-title h2 {
+  font-size: 30px;
+}
+
+.section-title span {
+  display: block;
+  width: 55px;
+  height: 3px;
+  background: var(--gold);
+  margin: 15px auto;
+}
+
+.search {
+  display: block;
+  width: 85%;
+  max-width: 450px;
+  padding: 14px;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline-color: var(--gold);
+}
+
+.filters {
+  text-align: center;
+  margin: 25px 10px;
+}
+
+.filters button {
+  border: 1px solid #222;
+  background: white;
+  padding: 11px 20px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.filters button.active,
+.filters button:hover {
+  background: var(--black);
+  color: var(--gold);
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  padding: 15px 7% 60px;
+}
+
+.product {
+  background: white;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,.06);
+  transition: transform .3s;
+}
+
+.product:hover { transform: translateY(-6px); }
+
+.product img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  background: #eee;
+}
+
+.product-info { padding: 20px; }
+
+.product-info small {
+  color: #999;
+  letter-spacing: 1px;
+}
+
+.product-info h3 {
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.product-info .price {
+  color: #a47b36;
+  font-size: 19px;
+  font-weight: bold;
+  margin: 13px 0;
+}
+
+.order {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  color: white;
+  background: #168b48;
+  text-decoration: none;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.order:hover { background: #106b37; }
+
+.empty {
+  text-align: center;
+  grid-column: 1 / -1;
+  padding: 30px;
+}
+
+.banner {
+  background: #151515;
+  color: white;
+  text-align: center;
+  padding: 60px 15px;
+}
+
+.banner h2 {
+  color: var(--gold);
+  margin-bottom: 15px;
+  font-size: 30px;
+}
+
+.banner p {
+  line-height: 1.8;
+  margin-bottom: 25px;
+}
+
+.about {
+  text-align: center;
+  padding: 55px 10%;
+  line-height: 1.9;
+  background: white;
+}
+
+.about h2 { margin-bottom: 20px; }
+
+.contact {
+  text-align: center;
+  padding: 45px 15px;
+  background: #eee;
+}
+
+.contact a {
+  display: inline-block;
+  margin-top: 20px;
+  background: #168b48;
+  color: white;
+  padding: 13px 25px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+footer {
+  background: #101010;
+  color: white;
+  text-align: center;
+  padding: 30px 15px;
+  line-height: 2;
+}
+
+footer strong { color: var(--gold); }
+
+@media(max-width:600px) {
+  header { justify-content: center; text-align: center; }
+  nav { justify-content: center; gap: 15px; }
+  .hero { min-height: 440px; }
+  .features { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">
+    TIME LUXURY
+    <small>BY JEDEON</small>
+  </div>
+
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#boutique">Boutique</a>
+    <a href="#apropos">À propos</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="accueil">
+  <div class="hero-content">
+    <p class="tag">TIME LUXURY BY JEDEON</p>
+    <h1>Le temps est un <span>luxe.</span></h1>
+    <p>
+      Découvrez notre sélection de montres élégantes,
+      modernes et raffinées pour hommes et femmes.
+      Exprimez votre style à chaque instant.
+    </p>
+    <a class="gold-btn" href="#boutique">DÉCOUVRIR LA COLLECTION</a>
+  </div>
+</section>
+
+<section class="features">
+  <div class="feature">
+    <strong>✦ Élégance</strong>
+    <span>Des modèles sélectionnés avec soin</span>
+  </div>
+  <div class="feature">
+    <strong>✦ Hommes & Femmes</strong>
+    <span>Une collection pour tous les styles</span>
+  </div>
+  <div class="feature">
+    <strong>✦ Commande facile</strong>
+    <span>Contact direct sur WhatsApp</span>
+  </div>
+</section>
+
+<section id="boutique">
+  <div class="section-title">
+    <p>NOTRE SÉLECTION</p>
+    <h2>Nos montres</h2>
+    <span></span>
+  </div>
+
+  <input
+    class="search"
+    id="search"
+    type="search"
+    placeholder="Rechercher une montre..."
+  >
+
+  <div class="filters">
+    <button class="active" onclick="filterProducts('Toutes',this)">Toutes</button>
+    <button onclick="filterProducts('Hommes',this)">Hommes</button>
+    <button onclick="filterProducts('Femmes',this)">Femmes</button>
+    <button onclick="filterProducts('Unisexe',this)">Unisexe</button>
+  </div>
+
+  <div class="products" id="products"></div>
+</section>
+
+<section class="banner">
+  <h2>TIME LUXURY BY JEDEON</h2>
+  <p>
+    Une montre n'est pas seulement un accessoire.<br>
+    C'est une expression de votre personnalité.
+  </p>
+  <a class="gold-btn" href="#boutique">EXPLORER NOS MODÈLES</a>
+</section>
+
+<section class="about" id="apropos">
+  <h2>À propos de notre boutique</h2>
+  <p>
+    TIME LUXURY BY JEDEON est une boutique en ligne
+    spécialisée dans la présentation et la vente de montres
+    pour hommes et femmes. Notre ambition est de vous
+    proposer des modèles qui associent élégance,
+    modernité et style.
+  </p>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Vous avez trouvé votre montre ?</h2>
+  <p>Contactez-nous directement pour passer votre commande.</p>
+  <a href="https://wa.me/25767305659" target="_blank">
+    Contacter TIME LUXURY sur WhatsApp
+  </a>
+</section>
+
+<footer>
+  <p><strong>TIME LUXURY BY JEDEON</strong></p>
+  <p>L'élégance à votre poignet.</p>
+  <p>© 2026 - Tous droits réservés.</p>
+</footer>
+
+<script>
+const whatsapp = "25767305659";
+
+const watches = [
+  {
+    name: "Classic Silver",
+    category: "Hommes",
+    price: 85000,
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=700"
+  },
+  {
+    name: "Royal Black",
+    category: "Hommes",
+    price: 95000,
+    image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=700"
+  },
+  {
+    name: "Golden Lady",
+    category: "Femmes",
+    price: 75000,
+    image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=700"
+  },
+  {
+    name: "Elegant Rose",
+    category: "Femmes",
+    price: 90000,
+    image: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=700"
+  },
+  {
+    name: "Modern Steel",
+    category: "Unisexe",
+    price: 110000,
+    image: "https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?w=700"
+  },
+  {
+    name: "Luxury Gold",
+    category: "Hommes",
+    price: 125000,
+    image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=700"
+  },
+  {
+    name: "Fashion Pink",
+    category: "Femmes",
+    price: 80000,
+    image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=700"
+  },
+  {
+    name: "Urban Time",
+    category: "Unisexe",
+    price: 100000,
+    image: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=700"
+  }
+];
+
+let categorySelected = "Toutes";
+
+function displayProducts() {
+  const container = document.getElementById("products");
+  const search = document.getElementById("search").value.toLowerCase();
+
+  const results = watches.filter(w => {
+    const categoryMatch =
+      categorySelected === "Toutes" ||
+      w.category === categorySelected;
+
+    const searchMatch = w.name.toLowerCase().includes(search);
+
+    return categoryMatch && searchMatch;
+  });
+
+  container.innerHTML = "";
+
+  if (results.length === 0) {
+    container.innerHTML = '<p class="empty">Aucune montre trouvée.</p>';
+    return;
+  }
+
+  results.forEach(w => {
+    const message = encodeURIComponent(
+      "Bonjour TIME LUXURY BY JEDEON ! Je souhaite commander : " +
+      w.name + " (" + w.category + "), au prix de " +
+      w.price.toLocaleString("fr-FR") + " FBu."
+    );
+
+    container.innerHTML += `
+      <article class="product">
+        <img src="${w.image}" alt="${w.name}" loading="lazy">
+        <div class="product-info">
+          <small>${w.category.toUpperCase()}</small>
+          <h3>${w.name}</h3>
+          <p class="price">${w.price.toLocaleString("fr-FR")} FBu</p>
+          <a class="order"
+             href="https://wa.me/${whatsapp}?text=${message}"
+             target="_blank" rel="noopener">
+             COMMANDER SUR WHATSAPP
+          </a>
+        </div>
+      </article>
+    `;
+  });
+}
+
+function filterProducts(category, button) {
+  categorySelected = category;
+
+  document.querySelectorAll(".filters button")
+    .forEach(b => b.classList.remove("active"));
+
+  button.classList.add("active");
+  displayProducts();
+}
+
+document.getElementById("search")
+  .addEventListener("input", displayProducts);
+
+displayProducts();
+</script>
+
+</body>
+</html>
